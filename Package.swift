@@ -3,7 +3,7 @@ import PackageDescription
 
 let package = Package(
     name: "NeumorphicSwiftUI",
-    platforms: [.iOS(.v17)],
+    platforms: [.iOS(.v15)],
     products: [
         .library(name: "NeumorphicSwiftUI", targets: ["NeumorphicSwiftUI"]),
     ],

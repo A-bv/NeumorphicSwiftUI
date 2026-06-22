@@ -1,7 +1,7 @@
 import SwiftUI
 
-/// The colors the SwiftUI neumorphic styles need. The host app injects its own
-/// palette through ``NeumorphicTheme/configure(_:)`` so this package ships none.
+/// The colors the SwiftUI neumorphic styles need. Every value has a sensible default,
+/// so a host app injects only what it wants to override via ``NeumorphicTheme/configure(_:)``.
 public struct NeumorphicPalette {
     public let gradientStart: Color
     public let gradientEnd: Color
@@ -12,13 +12,13 @@ public struct NeumorphicPalette {
     public let background: Color
 
     public init(
-        gradientStart: Color,
-        gradientEnd: Color,
-        lowerShadow: Color,
-        upperShadow: Color,
-        highlightStroke: Color,
-        baseStroke: Color,
-        background: Color
+        gradientStart: Color = .gray,
+        gradientEnd: Color = .gray,
+        lowerShadow: Color = .black.opacity(0.2),
+        upperShadow: Color = .white,
+        highlightStroke: Color = .accentColor,
+        baseStroke: Color = .gray,
+        background: Color = .clear
     ) {
         self.gradientStart = gradientStart
         self.gradientEnd = gradientEnd

@@ -14,7 +14,8 @@ import SwiftUI
             .labelsHidden()
 
         Circle()
-            .outerNeumorphism(Color(white: 0.93))
+            .fill(Color(white: 0.93))
+            .neumorphicShadow()
             .frame(width: 90, height: 90)
     }
     .padding(64)

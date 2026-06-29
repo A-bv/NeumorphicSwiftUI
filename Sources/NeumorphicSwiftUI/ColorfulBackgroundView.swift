@@ -1,8 +1,12 @@
 import SwiftUI
 
-/// Corner radius shared by the neumorphic styles so the hit-test region, the visible
-/// fill, and the stroke always agree. Defined once to prevent the values from drifting.
-let neumorphicCornerRadius: CGFloat = 10
+/// Layout/styling values shared across the neumorphic styles, defined once so the
+/// hit-test region, fill, stroke, and shadows stay consistent and can't drift apart.
+enum NeumorphicMetrics {
+    static let cornerRadius: CGFloat = 10
+    static let shadowRadius: CGFloat = 10
+    static let strokeWidth: CGFloat = 4
+}
 
 /// The gradient + dual-shadow backing shared by the neumorphic button and toggle
 /// styles. Package-internal — call sites use ``ColorfulButtonStyle`` / ``DarkToggleStyle``.
@@ -16,15 +20,15 @@ struct ColorfulBackgroundView<S: Shape>: View {
             if isHighlighted {
                 shape
                     .fill(gradient(palette.gradientEnd, palette.gradientStart))
-                    .overlay(shape.stroke(gradient(palette.highlightStroke, palette.baseStroke), lineWidth: 4))
-                    .shadow(color: palette.gradientStart, radius: 10, x: 5, y: 5)
-                    .shadow(color: palette.gradientEnd, radius: 10, x: -5, y: -5)
+                    .overlay(shape.stroke(gradient(palette.highlightStroke, palette.baseStroke), lineWidth: NeumorphicMetrics.strokeWidth))
+                    .shadow(color: palette.gradientStart, radius: NeumorphicMetrics.shadowRadius, x: 5, y: 5)
+                    .shadow(color: palette.gradientEnd, radius: NeumorphicMetrics.shadowRadius, x: -5, y: -5)
             } else {
                 shape
                     .fill(gradient(palette.gradientStart, palette.gradientEnd))
-                    .overlay(shape.stroke(palette.background, lineWidth: 4))
-                    .shadow(color: palette.gradientStart, radius: 10, x: -10, y: -10)
-                    .shadow(color: palette.gradientEnd, radius: 10, x: 10, y: 10)
+                    .overlay(shape.stroke(palette.background, lineWidth: NeumorphicMetrics.strokeWidth))
+                    .shadow(color: palette.gradientStart, radius: NeumorphicMetrics.shadowRadius, x: -10, y: -10)
+                    .shadow(color: palette.gradientEnd, radius: NeumorphicMetrics.shadowRadius, x: 10, y: 10)
             }
         }
         .padding(5)

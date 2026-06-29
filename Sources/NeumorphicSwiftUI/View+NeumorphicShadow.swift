@@ -14,7 +14,7 @@ private struct NeumorphicShadow: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .shadow(color: palette.lowerShadow, radius: 10, x: 10, y: 10)
-            .shadow(color: palette.upperShadow, radius: 10, x: -5, y: -5)
+            .shadow(color: palette.lowerShadow, radius: NeumorphicMetrics.shadowRadius, x: 10, y: 10)
+            .shadow(color: palette.upperShadow, radius: NeumorphicMetrics.shadowRadius, x: -5, y: -5)
     }
 }

@@ -4,7 +4,7 @@ public struct DarkToggleStyle: ToggleStyle {
     public init() {}
 
     public func makeBody(configuration: Configuration) -> some View {
-        let shape = RoundedRectangle(cornerRadius: neumorphicCornerRadius)
+        let shape = RoundedRectangle(cornerRadius: NeumorphicMetrics.cornerRadius)
         return Button(action: { configuration.isOn.toggle() }) {
             configuration.label
                 .padding(10)

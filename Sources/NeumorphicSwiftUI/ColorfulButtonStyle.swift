@@ -4,7 +4,7 @@ public struct ColorfulButtonStyle: ButtonStyle {
     public init() {}
 
     public func makeBody(configuration: Configuration) -> some View {
-        let shape = RoundedRectangle(cornerRadius: neumorphicCornerRadius)
+        let shape = RoundedRectangle(cornerRadius: NeumorphicMetrics.cornerRadius)
         return configuration.label
             .padding(10)
             .contentShape(shape)

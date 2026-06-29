@@ -1,13 +1,12 @@
 #if DEBUG
 import SwiftUI
 
-// Living preview for the neumorphic styles, configured with a sample palette so they
-// render standalone. The host app injects its own via `NeumorphicTheme.configure(_:)`.
+// Living preview for the neumorphic styles, fed a sample palette so they render
+// standalone. The host app injects its own via `.neumorphicTheme(_:)` near the root.
 // Uses `PreviewProvider` (not the `#Preview` macro) so the package stays iOS 15+.
 struct NeumorphicStyles_Previews: PreviewProvider {
     static var previews: some View {
-        NeumorphicTheme.configure(.preview)
-        return VStack(spacing: 48) {
+        VStack(spacing: 48) {
             Button {} label: { Image(systemName: "paperplane.fill").font(.title2) }
                 .buttonStyle(ColorfulButtonStyle())
 
@@ -23,6 +22,7 @@ struct NeumorphicStyles_Previews: PreviewProvider {
         .padding(64)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color(white: 0.93))
+        .neumorphicTheme(.preview)
     }
 }
 

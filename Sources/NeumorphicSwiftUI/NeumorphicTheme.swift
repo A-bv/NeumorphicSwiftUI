@@ -1,13 +1,23 @@
 import SwiftUI
 
-/// Entry point for the SwiftUI neumorphic theme. Call ``configure(_:)`` once at
-/// launch with the app's palette, then use the styles and `neumorphicShadow()`.
-@MainActor
-public enum NeumorphicTheme {
-    static var palette = NeumorphicPalette()
+private struct NeumorphicPaletteKey: EnvironmentKey {
+    static let defaultValue = NeumorphicPalette()
+}
 
-    /// Injects the app's palette. Call once, before any styled view is shown.
-    public static func configure(_ palette: NeumorphicPalette) {
-        self.palette = palette
+public extension EnvironmentValues {
+    /// The palette the neumorphic styles read. Defaults to ``NeumorphicPalette``'s
+    /// own defaults; override it for a subtree with ``SwiftUI/View/neumorphicTheme(_:)``.
+    var neumorphicPalette: NeumorphicPalette {
+        get { self[NeumorphicPaletteKey.self] }
+        set { self[NeumorphicPaletteKey.self] = newValue }
+    }
+}
+
+public extension View {
+    /// Injects the app's palette into the environment. Apply once near the root;
+    /// every neumorphic style and `neumorphicShadow()` in the subtree reads from it,
+    /// so changing the palette re-renders the affected views.
+    func neumorphicTheme(_ palette: NeumorphicPalette) -> some View {
+        environment(\.neumorphicPalette, palette)
     }
 }

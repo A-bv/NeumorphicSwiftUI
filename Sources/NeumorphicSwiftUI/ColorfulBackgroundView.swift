@@ -7,11 +7,11 @@ let neumorphicCornerRadius: CGFloat = 10
 /// The gradient + dual-shadow backing shared by the neumorphic button and toggle
 /// styles. Package-internal — call sites use ``ColorfulButtonStyle`` / ``DarkToggleStyle``.
 struct ColorfulBackgroundView<S: Shape>: View {
+    @Environment(\.neumorphicPalette) private var palette
     var isHighlighted: Bool
     var shape: S
 
     var body: some View {
-        let palette = NeumorphicTheme.palette
         ZStack {
             if isHighlighted {
                 shape

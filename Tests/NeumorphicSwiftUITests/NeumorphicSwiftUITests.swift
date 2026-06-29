@@ -2,9 +2,7 @@ import Testing
 import SwiftUI
 @testable import NeumorphicSwiftUI
 
-// `configure` mutates a single global palette, so these cases must not run in parallel.
 @MainActor
-@Suite(.serialized)
 struct NeumorphicSwiftUITests {
     @Test func paletteDefaultsAreSensible() {
         let palette = NeumorphicPalette()
@@ -14,25 +12,17 @@ struct NeumorphicSwiftUITests {
         #expect(palette.highlightStroke == .accentColor)
     }
 
-    @Test func configureStoresTheInjectedPalette() {
-        NeumorphicTheme.configure(NeumorphicPalette(
-            gradientStart: .red,
-            gradientEnd: .blue,
-            lowerShadow: .black,
-            upperShadow: .white,
-            highlightStroke: .green,
-            baseStroke: .gray,
-            background: .clear))
-
-        #expect(NeumorphicTheme.palette.gradientStart == .red)
-        #expect(NeumorphicTheme.palette.gradientEnd == .blue)
-        #expect(NeumorphicTheme.palette.background == .clear)
+    @Test func environmentDefaultsToThePaletteDefaults() {
+        let palette = EnvironmentValues().neumorphicPalette
+        #expect(palette.gradientStart == .gray)
+        #expect(palette.background == .clear)
     }
 
-    @Test func configureReplacesAPreviouslyInjectedPalette() {
-        NeumorphicTheme.configure(NeumorphicPalette(gradientStart: .red))
-        NeumorphicTheme.configure(NeumorphicPalette(gradientStart: .green))
+    @Test func neumorphicThemeInjectsTheGivenPalette() {
+        var environment = EnvironmentValues()
+        environment.neumorphicPalette = NeumorphicPalette(gradientStart: .red, background: .black)
 
-        #expect(NeumorphicTheme.palette.gradientStart == .green)
+        #expect(environment.neumorphicPalette.gradientStart == .red)
+        #expect(environment.neumorphicPalette.background == .black)
     }
 }

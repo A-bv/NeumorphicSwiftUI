@@ -19,22 +19,25 @@ iOS 15 · Swift 5.9
 ```
 
 ## Usage
-Inject your palette once, at launch:
+Inject your palette into the environment near the root of your view tree:
 ```swift
-NeumorphicTheme.configure(NeumorphicPalette(
-    gradientStart: .myLight,
-    gradientEnd: .myDark,
-    lowerShadow: .myLowerShadow,
-    upperShadow: .myUpperShadow,
-    highlightStroke: .myAccent,
-    baseStroke: .myBase,
-    background: .myBackground))
+ContentView()
+    .neumorphicTheme(NeumorphicPalette(
+        gradientStart: .myLight,
+        gradientEnd: .myDark,
+        lowerShadow: .myLowerShadow,
+        upperShadow: .myUpperShadow,
+        highlightStroke: .myAccent,
+        baseStroke: .myBase,
+        background: .myBackground))
 ```
-Then style anything:
+Then style anything in that subtree:
 ```swift
 Button("Send") {}.buttonStyle(ColorfulButtonStyle())
 Toggle("Dark", isOn: $isOn).toggleStyle(DarkToggleStyle())
 Circle().fill(Color.cardFill).neumorphicShadow()
 ```
 
-> Set the palette before any styled view appears. Xcode previews must call `configure` themselves; the bundled preview shows how.
+> The palette flows through the environment, so styles update reactively when it
+> changes and different subtrees can use different palettes. Without `neumorphicTheme`,
+> styles fall back to `NeumorphicPalette`'s defaults; the bundled preview shows how.

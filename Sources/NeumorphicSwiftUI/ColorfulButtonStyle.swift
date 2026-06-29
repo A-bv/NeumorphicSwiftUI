@@ -4,13 +4,11 @@ public struct ColorfulButtonStyle: ButtonStyle {
     public init() {}
 
     public func makeBody(configuration: Configuration) -> some View {
-        configuration.label
+        let shape = RoundedRectangle(cornerRadius: neumorphicCornerRadius)
+        return configuration.label
             .padding(10)
-            .contentShape(Circle())
-            .background(
-                ColorfulBackgroundView(
-                    isHighlighted: configuration.isPressed,
-                    shape: RoundedRectangle(cornerRadius: 10)))
+            .contentShape(shape)
+            .background(ColorfulBackgroundView(isHighlighted: configuration.isPressed, shape: shape))
             .animation(nil, value: configuration.isPressed)
     }
 }

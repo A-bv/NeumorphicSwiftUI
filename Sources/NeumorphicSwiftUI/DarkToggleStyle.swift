@@ -4,14 +4,20 @@ public struct DarkToggleStyle: ToggleStyle {
     public init() {}
 
     public func makeBody(configuration: Configuration) -> some View {
-        Button(action: { configuration.isOn.toggle() }) {
+        let shape = RoundedRectangle(cornerRadius: neumorphicCornerRadius)
+        return Button(action: { configuration.isOn.toggle() }) {
             configuration.label
                 .padding(10)
-                .contentShape(Circle())
+                .contentShape(shape)
         }
-        .background(
-            ColorfulBackgroundView(
-                isHighlighted: configuration.isOn,
-                shape: RoundedRectangle(cornerRadius: 10)))
+        .background(ColorfulBackgroundView(isHighlighted: configuration.isOn, shape: shape))
+        // Re-expose the switch semantics that wrapping the toggle in a Button would
+        // otherwise drop: the on/off value everywhere, plus the toggle trait on iOS 17+.
+        .accessibilityValue(configuration.isOn ? Text("On") : Text("Off"))
+        .accessibilityAddTraits(toggleTraits)
+    }
+
+    private var toggleTraits: AccessibilityTraits {
+        if #available(iOS 17.0, macOS 14.0, *) { .isToggle } else { [] }
     }
 }

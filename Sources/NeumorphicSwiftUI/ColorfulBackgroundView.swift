@@ -1,5 +1,9 @@
 import SwiftUI
 
+/// Corner radius shared by the neumorphic styles so the hit-test region, the visible
+/// fill, and the stroke always agree. Defined once to prevent the values from drifting.
+let neumorphicCornerRadius: CGFloat = 10
+
 /// The gradient + dual-shadow backing shared by the neumorphic button and toggle
 /// styles. Package-internal — call sites use ``ColorfulButtonStyle`` / ``DarkToggleStyle``.
 struct ColorfulBackgroundView<S: Shape>: View {

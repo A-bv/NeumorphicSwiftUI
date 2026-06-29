@@ -8,10 +8,10 @@ NeumorphicSwiftUI gives you the soft, pressed-and-raised neumorphic look as plai
 - `ColorfulButtonStyle` and `DarkToggleStyle` — apply with `.buttonStyle` / `.toggleStyle`.
 - `View.neumorphicShadow()` — adds the soft shadow to any view; purely additive on top of your own fill.
 - Palette-agnostic — your colors, injected once.
-- Bundled `#Preview` renders the styles standalone.
+- Bundled preview renders the styles standalone.
 
 ## Requirements
-iOS 17 · Swift 5.9
+iOS 15 · Swift 5.9
 
 ## Installation
 ```swift
@@ -37,4 +37,4 @@ Toggle("Dark", isOn: $isOn).toggleStyle(DarkToggleStyle())
 Circle().fill(Color.cardFill).neumorphicShadow()
 ```
 
-> Set the palette before any styled view appears. Xcode previews must call `configure` themselves; the bundled `#Preview` shows how.
+> Set the palette before any styled view appears. Xcode previews must call `configure` themselves; the bundled preview shows how.

@@ -5,7 +5,7 @@ Neumorphic button, toggle, and surface styles for SwiftUI — themed by your pal
 NeumorphicSwiftUI gives you the soft, pressed-and-raised neumorphic look as plain SwiftUI styles you apply with a single modifier. It ships no colors: you inject your palette through the environment, so it slots into any app's design system without forking.
 
 ## Features
-- `ColorfulButtonStyle` and `DarkToggleStyle` — apply with `.buttonStyle` / `.toggleStyle`.
+- `NeumorphicButtonStyle` and `NeumorphicToggleStyle` — apply with `.buttonStyle` / `.toggleStyle`.
 - `View.neumorphicShadow()` — adds the soft shadow to any view; purely additive on top of your own fill.
 - Palette-agnostic — your colors, injected via the environment.
 - Bundled preview renders the styles standalone.
@@ -33,8 +33,8 @@ ContentView()
 ```
 Then style anything in that subtree:
 ```swift
-Button("Send") {}.buttonStyle(ColorfulButtonStyle())
-Toggle("Dark", isOn: $isOn).toggleStyle(DarkToggleStyle())
+Button("Send") {}.buttonStyle(NeumorphicButtonStyle())
+Toggle("Dark", isOn: $isOn).toggleStyle(NeumorphicToggleStyle())
 Circle().fill(Color.cardFill).neumorphicShadow()
 ```
 

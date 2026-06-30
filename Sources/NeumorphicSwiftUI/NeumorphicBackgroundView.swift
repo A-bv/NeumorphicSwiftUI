@@ -9,8 +9,8 @@ enum NeumorphicMetrics {
 }
 
 /// The gradient + dual-shadow backing shared by the neumorphic button and toggle
-/// styles. Package-internal — call sites use ``ColorfulButtonStyle`` / ``DarkToggleStyle``.
-struct ColorfulBackgroundView<S: Shape>: View {
+/// styles. Package-internal — call sites use ``NeumorphicButtonStyle`` / ``NeumorphicToggleStyle``.
+struct NeumorphicBackgroundView<S: Shape>: View {
     @Environment(\.neumorphicPalette) private var palette
     var isHighlighted: Bool
     var shape: S

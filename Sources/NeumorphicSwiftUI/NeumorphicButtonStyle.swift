@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct ColorfulButtonStyle: ButtonStyle {
+public struct NeumorphicButtonStyle: ButtonStyle {
     public init() {}
 
     public func makeBody(configuration: Configuration) -> some View {
@@ -8,7 +8,10 @@ public struct ColorfulButtonStyle: ButtonStyle {
         return configuration.label
             .padding(10)
             .contentShape(shape)
-            .background(ColorfulBackgroundView(isHighlighted: configuration.isPressed, shape: shape))
+            .background(NeumorphicBackgroundView(isHighlighted: configuration.isPressed, shape: shape))
             .animation(nil, value: configuration.isPressed)
     }
 }
+
+@available(*, deprecated, renamed: "NeumorphicButtonStyle")
+public typealias ColorfulButtonStyle = NeumorphicButtonStyle

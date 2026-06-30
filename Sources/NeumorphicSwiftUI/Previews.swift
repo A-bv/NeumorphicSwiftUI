@@ -8,10 +8,10 @@ struct NeumorphicStyles_Previews: PreviewProvider {
     static var previews: some View {
         VStack(spacing: 48) {
             Button {} label: { Image(systemName: "paperplane.fill").font(.title2) }
-                .buttonStyle(ColorfulButtonStyle())
+                .buttonStyle(NeumorphicButtonStyle())
 
             Toggle(isOn: .constant(true)) { Image(systemName: "moon.fill").font(.title2) }
-                .toggleStyle(DarkToggleStyle())
+                .toggleStyle(NeumorphicToggleStyle())
                 .labelsHidden()
 
             Circle()

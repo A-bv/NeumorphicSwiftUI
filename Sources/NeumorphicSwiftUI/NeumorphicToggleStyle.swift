@@ -1,6 +1,6 @@
 import SwiftUI
 
-public struct DarkToggleStyle: ToggleStyle {
+public struct NeumorphicToggleStyle: ToggleStyle {
     public init() {}
 
     public func makeBody(configuration: Configuration) -> some View {
@@ -10,7 +10,7 @@ public struct DarkToggleStyle: ToggleStyle {
                 .padding(10)
                 .contentShape(shape)
         }
-        .background(ColorfulBackgroundView(isHighlighted: configuration.isOn, shape: shape))
+        .background(NeumorphicBackgroundView(isHighlighted: configuration.isOn, shape: shape))
         // Re-expose the switch semantics that wrapping the toggle in a Button would
         // otherwise drop: the on/off value everywhere, plus the toggle trait on iOS 17+.
         .accessibilityValue(configuration.isOn ? Text("On") : Text("Off"))
@@ -21,3 +21,6 @@ public struct DarkToggleStyle: ToggleStyle {
         if #available(iOS 17.0, macOS 14.0, *) { .isToggle } else { [] }
     }
 }
+
+@available(*, deprecated, renamed: "NeumorphicToggleStyle")
+public typealias DarkToggleStyle = NeumorphicToggleStyle

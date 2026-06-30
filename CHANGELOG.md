@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.0] - 2026-06-30
+
+### Added
+- `NeumorphicButtonStyle` and `NeumorphicToggleStyle`, aligning the public API on
+  the `Neumorphic*` prefix used by `neumorphicShadow()` / `neumorphicTheme(_:)`.
+
+### Deprecated
+- `ColorfulButtonStyle` and `DarkToggleStyle` are now deprecated aliases of the
+  renamed styles. They keep working and the compiler offers a fix-it; they will be
+  removed in a future major release.
+
 ### Changed
 - Grouped the shared corner radius, shadow blur, and stroke width into a single
   internal `NeumorphicMetrics` so the styles stay visually consistent.
@@ -63,7 +74,8 @@ ContentView().neumorphicTheme(palette)
 ### Added
 - Initial release: palette-agnostic neumorphic theme with a configure entry point.
 
-[Unreleased]: https://github.com/A-bv/NeumorphicSwiftUI/compare/3.0.0...HEAD
+[Unreleased]: https://github.com/A-bv/NeumorphicSwiftUI/compare/3.1.0...HEAD
+[3.1.0]: https://github.com/A-bv/NeumorphicSwiftUI/compare/3.0.0...3.1.0
 [3.0.0]: https://github.com/A-bv/NeumorphicSwiftUI/compare/2.1.0...3.0.0
 [2.1.0]: https://github.com/A-bv/NeumorphicSwiftUI/compare/2.0.0...2.1.0
 [2.0.0]: https://github.com/A-bv/NeumorphicSwiftUI/compare/1.0.1...2.0.0

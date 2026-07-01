@@ -43,3 +43,6 @@ Circle().fill(Color.cardFill).neumorphicShadow()
 > The palette flows through the environment, so styles update reactively when it
 > changes and different subtrees can use different palettes. Without `neumorphicTheme`,
 > styles fall back to `NeumorphicPalette`'s defaults; the bundled preview shows how.
+
+## License
+NeumorphicSwiftUI is available under the MIT license. See [LICENSE](LICENSE) for details.

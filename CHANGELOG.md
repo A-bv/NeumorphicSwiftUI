@@ -7,8 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.1] - 2026-07-01
+
 ### Added
 - MIT `LICENSE`, so the package can now be depended on and redistributed.
+
+### Fixed
+- The neumorphic toggle no longer inherits the system button tint and
+  press dimming, so its label renders like `NeumorphicButtonStyle`'s.
 
 ## [3.1.0] - 2026-06-30
 
@@ -77,7 +83,8 @@ ContentView().neumorphicTheme(palette)
 ### Added
 - Initial release: palette-agnostic neumorphic theme with a configure entry point.
 
-[Unreleased]: https://github.com/A-bv/NeumorphicSwiftUI/compare/3.1.0...HEAD
+[Unreleased]: https://github.com/A-bv/NeumorphicSwiftUI/compare/3.1.1...HEAD
+[3.1.1]: https://github.com/A-bv/NeumorphicSwiftUI/compare/3.1.0...3.1.1
 [3.1.0]: https://github.com/A-bv/NeumorphicSwiftUI/compare/3.0.0...3.1.0
 [3.0.0]: https://github.com/A-bv/NeumorphicSwiftUI/compare/2.1.0...3.0.0
 [2.1.0]: https://github.com/A-bv/NeumorphicSwiftUI/compare/2.0.0...2.1.0

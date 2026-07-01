@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/A-bv/NeumorphicSwiftUI/actions/workflows/ci.yml/badge.svg)](https://github.com/A-bv/NeumorphicSwiftUI/actions/workflows/ci.yml)
 
+![The button, toggle, and shadow styles rendered with a light palette](Docs/neumorphic.gif)
+
 Neumorphic button, toggle, and surface styles for SwiftUI — themed by your palette.
 
 NeumorphicSwiftUI gives you the soft, pressed-and-raised neumorphic look as plain SwiftUI styles you apply with a single modifier. It ships no colors: you inject your palette through the environment, so it slots into any app's design system without forking.

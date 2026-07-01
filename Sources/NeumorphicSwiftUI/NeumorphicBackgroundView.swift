@@ -16,23 +16,28 @@ struct NeumorphicBackgroundView<S: Shape>: View {
     var shape: S
 
     var body: some View {
-        ZStack {
-            if isHighlighted {
-                shape
-                    .fill(gradient(palette.gradientEnd, palette.gradientStart))
-                    .overlay(shape.stroke(gradient(palette.highlightStroke, palette.baseStroke), lineWidth: NeumorphicMetrics.strokeWidth))
-                    .shadow(color: palette.gradientStart, radius: NeumorphicMetrics.shadowRadius, x: 5, y: 5)
-                    .shadow(color: palette.gradientEnd, radius: NeumorphicMetrics.shadowRadius, x: -5, y: -5)
-            } else {
-                shape
-                    .fill(gradient(palette.gradientStart, palette.gradientEnd))
-                    .overlay(shape.stroke(palette.background, lineWidth: NeumorphicMetrics.strokeWidth))
-                    .shadow(color: palette.gradientStart, radius: NeumorphicMetrics.shadowRadius, x: -10, y: -10)
-                    .shadow(color: palette.gradientEnd, radius: NeumorphicMetrics.shadowRadius, x: 10, y: 10)
-            }
-        }
-        .padding(5)
+        shape
+            .fill(isHighlighted
+                ? gradient(palette.gradientEnd, palette.gradientStart)
+                : gradient(palette.gradientStart, palette.gradientEnd))
+            .overlay(shape.stroke(strokeStyle, lineWidth: NeumorphicMetrics.strokeWidth))
+            .shadow(color: palette.gradientStart, radius: NeumorphicMetrics.shadowRadius,
+                    x: nearShadowOffset, y: nearShadowOffset)
+            .shadow(color: palette.gradientEnd, radius: NeumorphicMetrics.shadowRadius,
+                    x: farShadowOffset, y: farShadowOffset)
+            .padding(5)
     }
+
+    /// The stroke is a gradient when pressed and a solid `background` otherwise, so
+    /// the two static styles are erased to a single type.
+    private var strokeStyle: AnyShapeStyle {
+        isHighlighted
+            ? AnyShapeStyle(gradient(palette.highlightStroke, palette.baseStroke))
+            : AnyShapeStyle(palette.background)
+    }
+
+    private var nearShadowOffset: CGFloat { isHighlighted ? 5 : -10 }
+    private var farShadowOffset: CGFloat { isHighlighted ? -5 : 10 }
 
     private func gradient(_ first: Color, _ second: Color) -> LinearGradient {
         LinearGradient(

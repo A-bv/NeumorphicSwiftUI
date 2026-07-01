@@ -13,7 +13,7 @@ NeumorphicSwiftUI gives you the soft, pressed-and-raised neumorphic look as plai
 - Bundled preview renders the styles standalone.
 
 ## Requirements
-iOS 15 · Swift 5.9
+iOS 15 · macOS 12 · Swift 5.9
 
 ## Installation
 ```swift

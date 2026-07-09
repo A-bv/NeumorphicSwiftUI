@@ -41,15 +41,40 @@ struct NeumorphicSwiftUITests {
         #expect(palette.highlightStroke == .red)
     }
 
+    @Test func metricsDefaultsMatchTheBuiltInLook() {
+        let metrics = NeumorphicMetrics()
+        #expect(metrics.cornerRadius == 10)
+        #expect(metrics.shadowRadius == 10)
+        #expect(metrics.strokeWidth == 4)
+        #expect(metrics.depth == 10)
+    }
+
     @Test func raisedShadowOffsetsCastOutward() {
-        let offsets = NeumorphicMetrics.shadowOffsets(isHighlighted: false)
+        let offsets = NeumorphicMetrics().shadowOffsets(isHighlighted: false)
         #expect(offsets.near == -10)
         #expect(offsets.far == 10)
     }
 
     @Test func pressedShadowOffsetsPullInward() {
-        let offsets = NeumorphicMetrics.shadowOffsets(isHighlighted: true)
+        let offsets = NeumorphicMetrics().shadowOffsets(isHighlighted: true)
         #expect(offsets.near == 5)
         #expect(offsets.far == -5)
+    }
+
+    @Test func depthScalesTheShadowOffsets() {
+        let deep = NeumorphicMetrics(depth: 24)
+        #expect(deep.shadowOffsets(isHighlighted: false) == (near: -24, far: 24))
+        #expect(deep.shadowOffsets(isHighlighted: true) == (near: 12, far: -12))
+    }
+
+    @Test func neumorphicMetricsInjectsIntoTheEnvironment() {
+        var environment = EnvironmentValues()
+        environment.neumorphicMetrics = NeumorphicMetrics(cornerRadius: 20, depth: 6)
+        #expect(environment.neumorphicMetrics.cornerRadius == 20)
+        #expect(environment.neumorphicMetrics.depth == 6)
+    }
+
+    @Test func environmentDefaultsToTheMetricsDefaults() {
+        #expect(EnvironmentValues().neumorphicMetrics.cornerRadius == 10)
     }
 }

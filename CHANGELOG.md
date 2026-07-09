@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+- `NeumorphicMetrics` tunes the corner radius, shadow softness, stroke width, and depth.
+  Inject it with `.neumorphicMetrics(_:)`, or alongside the palette in `.neumorphicTheme`.
+
 ## 3.2.0 - 2026-07-04
 
 ### Added

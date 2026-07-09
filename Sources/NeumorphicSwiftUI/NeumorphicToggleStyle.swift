@@ -4,16 +4,14 @@ public struct NeumorphicToggleStyle: ToggleStyle {
     public init() {}
 
     public func makeBody(configuration: Configuration) -> some View {
-        let shape = RoundedRectangle(cornerRadius: NeumorphicMetrics.cornerRadius)
-        return Button(action: { configuration.isOn.toggle() }) {
-            configuration.label
-                .padding(10)
-                .contentShape(shape)
+        Button(action: { configuration.isOn.toggle() }) {
+            NeumorphicSurface(isHighlighted: configuration.isOn) {
+                configuration.label
+            }
         }
         // Strip the default button tint and press-dim so the neumorphic background is
         // the only styling, matching how NeumorphicButtonStyle renders its label.
         .buttonStyle(.plain)
-        .background(NeumorphicBackgroundView(isHighlighted: configuration.isOn, shape: shape))
         // Switch state instantly, matching NeumorphicButtonStyle's crisp press instead
         // of letting the background fade between the on and off looks.
         .animation(nil, value: configuration.isOn)

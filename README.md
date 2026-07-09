@@ -30,6 +30,7 @@ more inviting, this gives you the pieces.
 ## Why you'll like it
 - **One line to apply.** Any button, toggle, or view becomes a soft neumorphic control.
 - **Your colors, not ours.** Give it a single color and it works out the light and shadow for you. Nothing is baked in, so it fits any design.
+- **Your shape too.** Tune the corner radius, shadow softness, and depth, not just the colors.
 - **Truly drop-in.** No setup and no dependencies; it layers on top of what you already have.
 - **See it first.** A ready-made example app shows every style running live.
 
@@ -58,6 +59,14 @@ Toggle("Dark", isOn: $isOn).toggleStyle(NeumorphicToggleStyle())
 Circle().fill(.myGray).neumorphicShadow()
 ```
 Want to hand-pick every color instead? The palette takes them all.
+
+Want it rounder, softer, or more raised? Pass metrics alongside the palette:
+```swift
+ContentView()
+    .neumorphicTheme(
+        NeumorphicPalette(surface: .myGray),
+        metrics: NeumorphicMetrics(cornerRadius: 20, depth: 6))
+```
 
 See every style in code: [`Examples/DemoApp`](Examples/DemoApp).
 

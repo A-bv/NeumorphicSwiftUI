@@ -11,10 +11,11 @@ public extension View {
 
 private struct NeumorphicShadow: ViewModifier {
     @Environment(\.neumorphicPalette) private var palette
+    @Environment(\.neumorphicMetrics) private var metrics
 
     func body(content: Content) -> some View {
         content
-            .shadow(color: palette.lowerShadow, radius: NeumorphicMetrics.shadowRadius, x: 10, y: 10)
-            .shadow(color: palette.upperShadow, radius: NeumorphicMetrics.shadowRadius, x: -5, y: -5)
+            .shadow(color: palette.lowerShadow, radius: metrics.shadowRadius, x: metrics.depth, y: metrics.depth)
+            .shadow(color: palette.upperShadow, radius: metrics.shadowRadius, x: -metrics.depth / 2, y: -metrics.depth / 2)
     }
 }

@@ -43,7 +43,7 @@ more inviting, this gives you the pieces.
 
 **Or in `Package.swift`**
 ```swift
-.package(url: "https://github.com/A-bv/NeumorphicSwiftUI", from: "3.2.0")
+.package(url: "https://github.com/A-bv/NeumorphicSwiftUI", from: "3.3.0")
 ```
 
 ## Use it

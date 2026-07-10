@@ -27,12 +27,11 @@ Dream up something beautiful: a hushed music player, a cozy smart-home panel, a
 calculator that begs to be tapped. Wherever a soft, physical feel would make your app
 more inviting, this gives you the pieces.
 
-## Why you'll like it
-- **One line to apply.** Any button, toggle, or view becomes a soft neumorphic control.
-- **Your colors, not ours.** Give it a single color and it works out the light and shadow for you. Nothing is baked in, so it fits any design.
-- **Your shape too.** Tune the corner radius, shadow softness, and depth, not just the colors.
-- **Truly drop-in.** No setup and no dependencies; it layers on top of what you already have.
-- **See it first.** A ready-made example app shows every style running live.
+## Features
+- **Button and toggle styles**, plus a shadow you can add to any view.
+- **One-color theming.** One surface color builds the whole palette, and you can override any color by hand.
+- **Adjustable shape.** Corner radius, shadow softness, and depth, not only color.
+- **No dependencies, no setup.** It layers on top of your existing views.
 
 ## Add it to your app
 

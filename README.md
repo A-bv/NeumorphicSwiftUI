@@ -23,9 +23,8 @@ Soft, tactile controls for SwiftUI: buttons and toggles that look gently pressed
 the screen or lifted out of it. It's the calm, modern *neumorphic* look, and you add it
 to your own app in one line, in your own colors.
 
-Dream up something beautiful: a hushed music player, a cozy smart-home panel, a
-calculator that begs to be tapped. Wherever a soft, physical feel would make your app
-more inviting, this gives you the pieces.
+It fits anywhere a soft, physical feel suits the design, such as a music player, a
+smart-home panel, or a calculator.
 
 ## Features
 - **Button and toggle styles**, plus a shadow you can add to any view.

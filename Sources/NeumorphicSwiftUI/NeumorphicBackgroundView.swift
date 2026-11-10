@@ -11,15 +11,25 @@ struct NeumorphicBackgroundView<S: Shape>: View {
     var body: some View {
         let offsets = metrics.shadowOffsets(isHighlighted: isHighlighted)
         return shape
-            .fill(isHighlighted
-                ? gradient(palette.gradientEnd, palette.gradientStart)
-                : gradient(palette.gradientStart, palette.gradientEnd))
+            .fill(fill)
             .overlay(shape.stroke(strokeStyle, lineWidth: metrics.strokeWidth))
-            .shadow(color: palette.upperShadow, radius: metrics.shadowRadius,
-                    x: offsets.near, y: offsets.near)
-            .shadow(color: palette.lowerShadow, radius: metrics.shadowRadius,
-                    x: offsets.far, y: offsets.far)
+            .background(shadowLayer(palette.upperShadow, offset: offsets.near))
+            .background(shadowLayer(palette.lowerShadow, offset: offsets.far))
             .padding(5)
+    }
+
+    private var fill: LinearGradient {
+        isHighlighted
+            ? gradient(palette.gradientEnd, palette.gradientStart)
+            : gradient(palette.gradientStart, palette.gradientEnd)
+    }
+
+    /// Each shadow is cast by its own copy of the shape. Chaining `.shadow` on one view
+    /// would make the dark shadow also shade the light one, smudging the edges.
+    private func shadowLayer(_ color: Color, offset: CGFloat) -> some View {
+        shape
+            .fill(fill)
+            .shadow(color: color, radius: metrics.shadowRadius, x: offset, y: offset)
     }
 
     /// The stroke is a gradient when pressed and a solid `background` otherwise, so

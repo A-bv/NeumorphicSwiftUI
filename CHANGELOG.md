@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Changed
+- The button and toggle now cast their shadows in the palette's `lowerShadow` and
+  `upperShadow`, like `neumorphicShadow()`, instead of the gradient colors. They look
+  more raised, and one pair of colors sets every shadow.
+
 ## 3.3.0 - 2026-07-10
 
 ### Added

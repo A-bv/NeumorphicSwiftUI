@@ -15,9 +15,9 @@ struct NeumorphicBackgroundView<S: Shape>: View {
                 ? gradient(palette.gradientEnd, palette.gradientStart)
                 : gradient(palette.gradientStart, palette.gradientEnd))
             .overlay(shape.stroke(strokeStyle, lineWidth: metrics.strokeWidth))
-            .shadow(color: palette.gradientStart, radius: metrics.shadowRadius,
+            .shadow(color: palette.upperShadow, radius: metrics.shadowRadius,
                     x: offsets.near, y: offsets.near)
-            .shadow(color: palette.gradientEnd, radius: metrics.shadowRadius,
+            .shadow(color: palette.lowerShadow, radius: metrics.shadowRadius,
                     x: offsets.far, y: offsets.far)
             .padding(5)
     }

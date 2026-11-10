@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 3.4.1 - 2026-11-10
+
 ### Fixed
 - The button and toggle shadows no longer stack: the dark shadow used to also shade the
   light one, which smudged the edges of small controls.

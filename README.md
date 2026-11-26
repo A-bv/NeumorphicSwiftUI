@@ -28,6 +28,7 @@ smart-home panel, or a calculator.
 
 ## Features
 - **Button and toggle styles**, plus a shadow you can add to any view.
+- **Raised or recessed.** Lift a view with a soft shadow, or carve a shape into an inset well.
 - **One-color theming.** One surface color builds the whole palette, and you can override any color by hand.
 - **Adjustable shape.** Corner radius, shadow softness, and depth, not only color.
 - **No dependencies, no setup.** It layers on top of your existing views.
@@ -64,6 +65,12 @@ ContentView()
     .neumorphicTheme(
         NeumorphicPalette(surface: .myGray),
         metrics: NeumorphicMetrics(cornerRadius: 20, depth: 6))
+```
+
+Need a recessed well instead of a raised control? Carve any shape (iOS 16):
+```swift
+GaugeArc().neumorphicInnerShadow(in: Circle())
+RangeBars().neumorphicInnerShadow(in: RoundedRectangle(cornerRadius: 16))
 ```
 
 See every style in code: [`Examples/DemoApp`](Examples/DemoApp).

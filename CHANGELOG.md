@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Added
+- `neumorphicInnerShadow(in:)` carves a view into a recessed well of any shape, the inset
+  mirror of `neumorphicShadow()`. It reads the palette and metrics from the environment
+  like the raised shadow. Requires iOS 16 / macOS 13, since it uses SwiftUI's inner
+  `ShapeStyle` shadows.
+
 ## 3.4.1 - 2026-11-10
 
 ### Fixed

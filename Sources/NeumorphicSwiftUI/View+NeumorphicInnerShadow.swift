@@ -12,6 +12,8 @@ public extension View {
     /// ```swift
     /// GaugeArc().neumorphicInnerShadow(in: Circle())
     /// ```
+    /// Inset that content from the well's edge, for example with `.padding`, so the
+    /// recessed lip stays visible; a shape drawn to the edge can cover it.
     ///
     /// - Parameters:
     ///   - shape: The shape of the well, for example `Circle()` or

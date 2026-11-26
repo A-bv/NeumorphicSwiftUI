@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+## 3.5.0 - 2026-11-26
+
 ### Added
 - `neumorphicInnerShadow(in:)` carves a view into a recessed well of any shape, the inset
   mirror of `neumorphicShadow()`. It reads the palette and metrics from the environment

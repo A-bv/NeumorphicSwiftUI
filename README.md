@@ -42,7 +42,7 @@ smart-home panel, or a calculator.
 
 **Or in `Package.swift`**
 ```swift
-.package(url: "https://github.com/A-bv/NeumorphicSwiftUI", from: "3.4.1")
+.package(url: "https://github.com/A-bv/NeumorphicSwiftUI", from: "3.5.0")
 ```
 
 ## Use it
